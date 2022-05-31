@@ -2,38 +2,43 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
 
-        Scanner inp = new Scanner(System.in);
-        int number;
-
-        System.out.print("Please enter any number : ");
-        number = inp.nextInt();
+        System.out.print("Please enter the number of digits : ");
+        int N = input.nextInt();
 
 
-        for (int i = 1; i <= number; i++) {
-            if (i == 2 || i == 3 || i == 5) {
+        int number1 =0, number2 =1;
+
+        int counter =0;
+
+        while (counter < N){
+
+            System.out.print(number1 + " ");
+            int num3 = number1 + number2;
+            number1 = number2;
+            number2 = num3;
+
+            counter = counter +1;
 
 
-                System.out.println(i + " is the prime number.");
-            } else {
-
-                if (i == 1) {
-
-                    System.out.println(i + " is a simple number.");
-
-                } else if (i % 2 == 0 || i % 3 == 0 || i % 5 == 0) {
-                    System.out.println(i + " is a simple number.");
-
-
-                } else {
-
-
-                    System.out.println(i +  " is the prime number.");
-
-
-                }
-            }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
 
