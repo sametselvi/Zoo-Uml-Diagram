@@ -2,30 +2,54 @@ import java.util.Scanner;
 
 public class Main {
 
-    static int power(int a, int b) {
-        int result = 1;
-        for (int i = 1; i <= b; i++) {
-
-            result *= a;
+    static boolean check (int number){
+        boolean isPrimeNumber =true;
+        if (number <=1){
+            isPrimeNumber =false;
+        }else{
+            for(int i=2; i<=number/2; i++){
+                if(number % i==0){
+                    isPrimeNumber =false;
+                    break;
+                }
+            }
         }
-
-        return result;
-
+        return isPrimeNumber;
     }
+
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Alt taban sayıyı giriniz : ");
-        int n1 =input.nextInt();
-        System.out.println("Üst sayıyı giriniz : ");
-        int n2 =input.nextInt();
+        System.out.print("Enter a number please : ");
+        int number = input.nextInt();
 
-        System.out.println("İşlem sonucu : " + power(n1,n2));
+        boolean isPrimeNumber = check(number);
+
+
+        if (isPrimeNumber){
+            System.out.println( number + "is a prime number");
+        }
+        else{
+            System.out.println( number + "is not a prime number");
+
+
+
+        }
+
 
     }
+
 }
+
 
 
 
