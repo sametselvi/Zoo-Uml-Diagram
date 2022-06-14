@@ -1,94 +1,34 @@
 import java.util.Scanner;
 
 public class Main {
+     static int pattern1(int num) {
 
-    static boolean check (int number){
-        boolean isPrimeNumber =true;
-        if (number <=1){
-            isPrimeNumber =false;
-        }else{
-            for(int i=2; i<=number/2; i++){
-                if(number % i==0){
-                    isPrimeNumber =false;
-                    break;
-                }
-            }
+        if (num <= 0) {
+            return num;
+        } else {
+            System.out.print(num + " ");
+            return pattern1(num - 5);
         }
-        return isPrimeNumber;
+
     }
 
+    static int pattern2(int num, int temp) {
+        if (num > temp) {
+            return num;
+        } else {
+            System.out.print(num + " ");
+            return pattern2(num + 5, temp);
+        }
 
-
-
-
-
-
-
-
+    }
 
     public static void main(String[] args) {
-
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter a number please : ");
-        int number = input.nextInt();
+        int num;
+        System.out.print("N sayisi : ");
+        num = input.nextInt();
 
-        boolean isPrimeNumber = check(number);
-
-
-        if (isPrimeNumber){
-            System.out.println( number + "is a prime number");
-        }
-        else{
-            System.out.println( number + "is not a prime number");
-
-
-
-        }
-
+        pattern2(pattern1(num), num);
 
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
