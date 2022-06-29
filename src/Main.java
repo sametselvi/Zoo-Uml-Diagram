@@ -1,13 +1,11 @@
 
 public class Main {
     public static void main(String[] args) {
-        Fighter f1 = new Fighter("A" , 10, 120, 100,100);
-        Fighter f2 = new Fighter("B" , 20, 85, 85,0);
 
 
-        Match math = new Match(f1, f2, 85, 100,50);
-        math.run();
+        Employee emp = new Employee("SAMET", 2000, 45, 1985);
 
 
+        emp.run();
     }
 }
