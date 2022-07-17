@@ -3,36 +3,38 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Please  enter any number : ");
-        Scanner input = new Scanner(System.in);
-        int number = input.nextInt();
+
+        String [][] matris = new String[7][4];
+
+        for(int i=0; i< matris.length;i++){
 
 
-        int[] list = {2, 6, -22, 55, 99, -1000};
+            for(int j=0; j< matris[i].length;j++){
+                if(i==0||i==3 ||i==6) {
+                    matris[i][j] = " *";
 
 
-        Arrays.sort(list);
+                }else if(j ==0 ||j==3){
+                    matris[i][j] =" *";
+                }else{
+                    matris[i][j]="  ";
+                }
 
 
-        System.out.println(Arrays.toString(list));
-
-        int max = list[0];
-        int min = list[0];
-
-
-        for (int i : list) {
-
-            if (number > i) {
-                min = i;
             }
-            if (number < i) {
-                max = i;
-                break;
-            }
+
 
         }
-        System.out.println("Minimum değeri : " + min);
-        System.out.println("Maximum değeri : " + max);
+
+        for(String[] row : matris){
+            for(String col:row){
+                System.out.print(col);
+            }
+            System.out.println();
+
+        }
+
+
     }
 }
 
