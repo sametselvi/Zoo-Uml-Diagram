@@ -1,48 +1,42 @@
 import java.util.Arrays;
-
+import java.util.Scanner;
 public class Main {
+
+
+
     public static void main(String[] args) {
-        int[] list = {2, 2, 2, 6, 7, 8, 9, 0, 0, 0, 7, 6, 4, 0};
-        int[] duplicate = new int[list.length];
-        int count = 0;
-        for (int i = 0; i < list.length; i++) {
-            if (list[i] == 0) {
-                count++;
+        Scanner input= new Scanner(System.in);
+        System.out.print("Please enter for the row : ");
+        int row=input.nextInt();
+        System.out.print("Please enter for the column : ");
+
+        int column=input.nextInt();
+        int [][]matris= new int[row][column];
+        int number=1;
+        System.out.println("The above matrix before Transpose is");
+        for(int i=0; i< matris.length;i++){
+            for(int j=0;j<matris[i].length;j++){
+                matris[i][j]=number++;
+                System.out.print(matris[i][j] + " ");
             }
-
-        }
-        for (int i = 0; i < list.length; i++) {
-            duplicate[i] = 1;
+            System.out.println();
         }
 
+        System.out.println("The above matrix after Transpose is ");
 
-        for (int i = 0; i < list.length; i++) {
-            for (int j = 0; j < list.length; j++) {
-                if ((i != j) && (list[i] == list[j])) {
-                    duplicate[i]++;
-
-                }
+        for(int i=0; i<column;i++){
+            for(int j=0; j<row;j++){
+                System.out.print(matris[j][i] + " ");
             }
+            System.out.println();
         }
-        for (int i = 0; i < list.length; i++) {
-            for (int j = 0; j < list.length; j++) {
-                if ((i != j) && (list[i] == list[j])) {
-                    list[j] = 0;
-                }
-            }
-        }
-        for (int i = 0; i < list.length; i++) {
-            if (duplicate[i] > 1) {
-                if (list[i] != 0) {
-                    System.out.println(list[i] + " sayisi " + duplicate[i] + " kere tekrar etti.");
 
 
-                }
 
-            }
 
-        }
-        System.out.println("0 sayisi " + count + " kere tekrar etti.");
+
+
+
 
 
     }
