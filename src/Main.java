@@ -1,43 +1,70 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
+
+
 public class Main {
 
-
-
     public static void main(String[] args) {
-        Scanner input= new Scanner(System.in);
-        System.out.print("Please enter for the row : ");
-        int row=input.nextInt();
-        System.out.print("Please enter for the column : ");
+        Random random = new Random();
+        Scanner inp = new Scanner(System.in);
+        int number = random.nextInt(100);
+        int right = 0;
+        int selected;
+        int[] wrong = new int[5];
+        boolean isWin = false;
+        boolean isMistake = false;
+        System.out.println(number);
+        while (right < 5) {
+            System.out.print("Lütfen tahminininizi giriniz : ");
+            selected = inp.nextInt();
 
-        int column=input.nextInt();
-        int [][]matris= new int[row][column];
-        int number=1;
-        System.out.println("The above matrix before Transpose is");
-        for(int i=0; i< matris.length;i++){
-            for(int j=0;j<matris[i].length;j++){
-                matris[i][j]=number++;
-                System.out.print(matris[i][j] + " ");
+            if (selected < 0 || selected > 99) {
+                System.out.println("Lütfen sıfır ile 100 arasında değer giriniz !");
+                if (isMistake) {
+                    right++;
+                    System.out.println("Çok fazla hatalı giriz yaptınız. Kalan hakkınız : " + (5 - right));
+
+
+                } else {
+
+                    isMistake = true;
+                    System.out.println("Bir daha hatalı işleminizde hakkınız düşürülecektir!");
+                }
+                continue;
             }
-            System.out.println();
-        }
+            if (selected == number) {
+                System.out.println("Tebrikler doğru sayıyı buldunuz! " + "Tahmin ettiğiniz sayı : " + number);
+                isWin = true;
+                break;
+            } else {
+                System.out.println("Hatalı bir sayı girdiniz ! ");
+                if (selected > number) {
+                    System.out.println(selected + " sayısı, gizli sayıdan büyüktür.");
+                } else {
+                    System.out.println(selected + "sayısı, gizli sayıdan küçüktür.");
+                }
 
-        System.out.println("The above matrix after Transpose is ");
+                wrong[right++] = selected;
 
-        for(int i=0; i<column;i++){
-            for(int j=0; j<row;j++){
-                System.out.print(matris[j][i] + " ");
+                System.out.println("Kalan hakkı : " + (5 - right));
             }
-            System.out.println();
+
         }
+        if ((!isWin)) {
+
+            System.out.println("Kaybettiniz ");
+
+                System.out.println("Tahminleriniz : " + Arrays.toString(wrong));
 
 
-
-
-
-
-
+        }
 
 
     }
+
 }
+
+
+
+
+
+
